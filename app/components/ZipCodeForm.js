@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {getCurrentWeather, getFiveDayForecast} from '../utils/api';
 
 class ZipCodeForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			zipcode: ''
+			citySearch: ''
 		};
-	this.handleUpdateZipcode = this.handleUpdateZipcode.bind(this)
+		this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
+		this.handleUpdateSearch = this.handleUpdateSearch.bind(this);
 	}
 
-	handleSubmitZipcode (event) {
-
+	handleSubmitSearch () {
+		getCurrentWeather(this.state.citySearch);
 	}
 
-	handleUpdateZipcode (event) {
+	handleUpdateSearch (event) {
 		var value = event.target.value;
 
 		this.setState(function () {
 			return {
-				zipcode: value
+				citySearch: value
 			}
 		})
 	}
@@ -37,12 +39,13 @@ class ZipCodeForm extends React.Component {
 					className='zipcode-box'
 					placeholder='Paris, Texas'
 					type='text'
-					onChange={this.handleUpdateZipcode}
-					value={this.state.zipcode} />
+					onChange={this.handleUpdateSearch}
+					value={this.state.citySearch} />
 				<button
 					type='button'
 					className='btn btn-success'
-					onClick={this.handleSubmitZipcode}>
+					disabled={!this.state.citySearch}
+					onClick={this.handleSubmitSearch}>
 					Get weather
 				</button>
 			</div>
@@ -55,7 +58,8 @@ ZipCodeForm.defaultProps = {
 }
 
 ZipCodeForm.propTypes = {
-	flexDir: PropTypes.string
+	flexDir: PropTypes.string,
+	// onSubmit: PropTypes.func.isRequired
 }
 
 export default ZipCodeForm;
