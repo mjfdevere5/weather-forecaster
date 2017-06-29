@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import HeaderBar from './HeaderBar';
 import Footer from './Footer';
@@ -9,7 +9,7 @@ import Forecast from './Forecast';
 class App extends React.Component {
 	render() {
 		return (
-			<Router>
+			<BrowserRouter>
 				<div className='app-container'>
 					<HeaderBar />
 					<Switch>
@@ -21,7 +21,7 @@ class App extends React.Component {
 					</Switch>
 					<Footer />
 				</div>
-			</Router>
+			</BrowserRouter>
 		);
 	}
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {getCurrentWeather, getFiveDayForecast} from '../utils/api';
+import {withRouter} from 'react-router-dom';
 
 class ZipCodeForm extends React.Component {
 	constructor(props) {
@@ -10,10 +11,12 @@ class ZipCodeForm extends React.Component {
 		};
 		this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
 		this.handleUpdateSearch = this.handleUpdateSearch.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
 
 	handleSubmitSearch () {
-		getCurrentWeather(this.state.citySearch);
+		var newPath = '/forecast?citySearch=' + this.state.citySearch;
+		this.props.history.push(newPath);
 	}
 
 	handleUpdateSearch (event) {
@@ -24,6 +27,12 @@ class ZipCodeForm extends React.Component {
 				citySearch: value
 			}
 		})
+	}
+
+	handleKeyDown(event) {
+		if (event.key === "Enter" && this.state.citySearch !== "") {
+			this.handleSubmitSearch();
+		}
 	}
 
 	render () {
@@ -40,6 +49,7 @@ class ZipCodeForm extends React.Component {
 					placeholder='Paris, Texas'
 					type='text'
 					onChange={this.handleUpdateSearch}
+					onKeyDown={this.handleKeyDown}
 					value={this.state.citySearch} />
 				<button
 					type='button'
@@ -62,4 +72,4 @@ ZipCodeForm.propTypes = {
 	// onSubmit: PropTypes.func.isRequired
 }
 
-export default ZipCodeForm;
+export default withRouter(ZipCodeForm);

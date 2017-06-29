@@ -1,20 +1,18 @@
 import React from 'react';
 import ZipCodeForm from './ZipCodeForm';
 
-var homeContainerStyles = {
-	backgroundImage: "url('app/images/pattern.svg')"
-};
-
-function Home () {
-	return (
-		<div
-			className='home-container'
-			style={homeContainerStyles}
-		>
-			<h1 className='home-header'>Enter a city and a state</h1>
-			<ZipCodeForm flexDir='column' />
-		</div>
-	);
+class Home extends React.Component {
+	render() {
+		// console.log("here we here we \n" + JSON.stringify(this.props, null, "  "));
+		return (
+			<div
+				className='home-container'
+			>
+				<h1 className='headerText'>Enter a city and a state</h1>
+				<ZipCodeForm flexDir='column' />
+			</div>
+		);
+	}
 }
 
 export default Home;
