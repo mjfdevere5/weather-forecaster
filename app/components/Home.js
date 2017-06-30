@@ -8,7 +8,7 @@ class Home extends React.Component {
 			<div
 				className='home-container'
 			>
-				<h1 className='headerText'>Enter a city and a state</h1>
+				<h1 className='headerText'>Search for a location</h1>
 				<ZipCodeForm flexDir='column' />
 			</div>
 		);

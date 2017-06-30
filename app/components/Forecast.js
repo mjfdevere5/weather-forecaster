@@ -32,8 +32,6 @@ class Forecast extends React.Component {
 	}
 
 	render () {
-		console.log("Rendering. this.state.weatherData = " +
-			(this.state.weatherData ? this.state.weatherData.city.name : this.state.weatherData));
 		return (
 			<div className='forecast-container'>
 				{ !this.state.weatherData ?
@@ -59,11 +57,12 @@ function ForecastGrid (props) {
 function GridItem (props) {
 	var date = getDate(props.fcst.dt);
 	var weatherIcon = props.fcst.weather[0].icon;
-	var imageSrc = 'app/images/weather-icons/' + weatherIcon + '.svg';
+	var imageSrc = weatherIcon + '.svg';
+	console.log(imageSrc);
 	var alt = props.fcst.weather[0].description;
 	return (
 		<div className='grid-item'>
-			<img src={imageSrc} alt={alt} className='weather-icon' />
+		<img src={imageSrc} alt={alt} className='weather-icon' />
 			<h2 className='date-subheader'>{date}</h2>
 		</div>	
 	);

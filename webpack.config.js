@@ -7,7 +7,7 @@ var config = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'index_bundle.js',
-		// publicPath: '/'
+		publicPath: '/'
 	},
 	devServer: {
 		historyApiFallback: true
@@ -16,7 +16,7 @@ var config = {
 		rules: [
 			{ test: /\.(js)$/, use: 'babel-loader' },
 			{ test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
-			{ test: /\.svg$/, use: 'file-loader' }
+			{ test: /\.svg$/,	use: 'file-loader' }
 		]
 	},
 	plugins: [
