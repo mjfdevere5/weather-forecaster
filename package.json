@@ -23,7 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.0",
     "query-string": "^4.3.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
