@@ -40,7 +40,7 @@
     "firebase-tools": "^3.9.1",
     "html-webpack-plugin": "^2.29.0",
     "style-loader": "^0.18.2",
-    "webpack": "^3.0.0",
+    "webpack": "^4.1.1",
     "webpack-dev-server": "^2.5.1"
   }
 }
